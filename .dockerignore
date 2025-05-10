@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+*.log
+*.env
+venv/
+
+# Ignore git metadata
+.git/
+.gitignore
+
+# Node modules and build (you mount them or copy separately)
+frontend/node_modules/
+frontend/.env
+frontend/build/

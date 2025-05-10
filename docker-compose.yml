@@ -1,0 +1,38 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: app/Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app:/app
+      - ./frontend/build:/frontend/build  # Монтируем собранный фронтенд
+    depends_on:
+      - db
+      
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/frontend
+    depends_on:
+      - backend
+
+  db:
+    image: postgres:13
+    container_name: nextflow_db
+    environment:
+      POSTGRES_USER: fastapi
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: nextflow_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

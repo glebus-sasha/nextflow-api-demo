@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+*.log
+*.env
+venv/
+.env
+
+# macOS
+.DS_Store
+
+# VSCode / PyCharm
+.vscode/
+.idea/
+
+# Node.js
+frontend/node_modules/
+frontend/build/
+frontend/.env
+
+# Docker
+*.pid
